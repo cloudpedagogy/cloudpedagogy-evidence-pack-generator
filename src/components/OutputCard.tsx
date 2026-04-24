@@ -30,6 +30,10 @@ export function OutputCard({ appState }: OutputCardProps) {
     if (institutionalNotes.policyReference) textSections.push(`Policy Reference: ${institutionalNotes.policyReference}`);
     if (institutionalNotes.reviewerNotes) textSections.push(`Reviewer Notes:\n${institutionalNotes.reviewerNotes}`);
     if (institutionalNotes.generalNotes) textSections.push(`General Notes:\n${institutionalNotes.generalNotes}`);
+    if (institutionalNotes.aiInvolvement) textSections.push(`AI Involvement:\n${institutionalNotes.aiInvolvement}`);
+    if (institutionalNotes.rationale) textSections.push(`Rationale:\n${institutionalNotes.rationale}`);
+    if (institutionalNotes.risksConcerns) textSections.push(`Risks & Concerns:\n${institutionalNotes.risksConcerns}`);
+    if (institutionalNotes.assumptions) textSections.push(`Assumptions:\n${institutionalNotes.assumptions}`);
 
     navigator.clipboard.writeText(textSections.join('\n'));
     alert('Evidence Pack copied to clipboard.');
@@ -78,7 +82,8 @@ export function OutputCard({ appState }: OutputCardProps) {
           <p className="text-muted italic">No evidence sections included.</p>
         )}
 
-        {(institutionalNotes.policyReference || institutionalNotes.reviewerNotes || institutionalNotes.generalNotes) && (
+        {(institutionalNotes.policyReference || institutionalNotes.reviewerNotes || institutionalNotes.generalNotes || 
+          institutionalNotes.aiInvolvement || institutionalNotes.rationale || institutionalNotes.risksConcerns || institutionalNotes.assumptions) && (
           <div style={{ marginTop: '32px', padding: '16px', backgroundColor: '#F9FAFB', border: '1px solid var(--color-border-default)' }}>
             <h3 style={{ marginTop: 0 }}>Institutional & Reviewer Notes</h3>
             {institutionalNotes.policyReference && (
@@ -94,9 +99,35 @@ export function OutputCard({ appState }: OutputCardProps) {
               </div>
             )}
             {institutionalNotes.generalNotes && (
-              <div>
+              <div style={{ marginBottom: '12px' }}>
                 <div className="semibold">General Notes</div>
                 <div style={{ whiteSpace: 'pre-wrap' }}>{institutionalNotes.generalNotes}</div>
+              </div>
+            )}
+            
+            {/* Governance Fields */}
+            {institutionalNotes.aiInvolvement && (
+              <div style={{ marginBottom: '12px', padding: '12px', backgroundColor: '#fff', border: '1px solid var(--color-border-subtle)', borderRadius: 'var(--radius-sm)' }}>
+                <div className="semibold" style={{ color: 'var(--color-primary)', fontSize: '0.9rem' }}>AI Involvement</div>
+                <div style={{ whiteSpace: 'pre-wrap' }}>{institutionalNotes.aiInvolvement}</div>
+              </div>
+            )}
+            {institutionalNotes.rationale && (
+              <div style={{ marginBottom: '12px', padding: '12px', backgroundColor: '#fff', border: '1px solid var(--color-border-subtle)', borderRadius: 'var(--radius-sm)' }}>
+                <div className="semibold" style={{ color: 'var(--color-primary)', fontSize: '0.9rem' }}>Rationale</div>
+                <div style={{ whiteSpace: 'pre-wrap' }}>{institutionalNotes.rationale}</div>
+              </div>
+            )}
+            {institutionalNotes.risksConcerns && (
+              <div style={{ marginBottom: '12px', padding: '12px', backgroundColor: '#fff', border: '1px solid var(--color-border-subtle)', borderRadius: 'var(--radius-sm)' }}>
+                <div className="semibold" style={{ color: 'var(--color-primary)', fontSize: '0.9rem' }}>Risks & Concerns</div>
+                <div style={{ whiteSpace: 'pre-wrap' }}>{institutionalNotes.risksConcerns}</div>
+              </div>
+            )}
+            {institutionalNotes.assumptions && (
+              <div style={{ padding: '12px', backgroundColor: '#fff', border: '1px solid var(--color-border-subtle)', borderRadius: 'var(--radius-sm)' }}>
+                <div className="semibold" style={{ color: 'var(--color-primary)', fontSize: '0.9rem' }}>Assumptions</div>
+                <div style={{ whiteSpace: 'pre-wrap' }}>{institutionalNotes.assumptions}</div>
               </div>
             )}
           </div>

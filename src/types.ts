@@ -27,6 +27,10 @@ export interface InstitutionalNotes {
   policyReference?: string;
   reviewerNotes?: string;
   generalNotes?: string;
+  aiInvolvement?: string;
+  rationale?: string;
+  risksConcerns?: string;
+  assumptions?: string;
 }
 
 export interface AppState {

@@ -150,7 +150,11 @@ export const DEMO_DATA: AppState = {
   "institutionalNotes": {
     "policyReference": "Refer to institutional guidance on generative AI in assessment and quality assurance.",
     "reviewerNotes": "Example evidence pack for demonstration and adaptation.",
-    "generalNotes": "Users should be able to edit all imported and generated content."
+    "generalNotes": "Users should be able to edit all imported and generated content.",
+    "aiInvolvement": "AI was used to synthesize initial summaries from raw assessment design and integrity profile documents. All generated content was then manually reviewed and refined for accuracy.",
+    "rationale": "This pack serves as a comprehensive audit trail to demonstrate how the module design balances AI integration with academic integrity.",
+    "risksConcerns": "Key concerns include ensuring consistency in how 'conditional' use is interpreted across the teaching team and students.",
+    "assumptions": "It is assumed that students have baseline digital literacy and access to the permitted AI tools specified in the guidance."
   },
   "lastUpdated": ""
 };
