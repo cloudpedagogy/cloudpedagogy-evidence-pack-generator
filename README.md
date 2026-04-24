@@ -68,6 +68,13 @@ This helps ensure that design work becomes:
 
 ---
 
+## Additional Documentation
+
+- [User Instructions](./INSTRUCTIONS.md)
+- [Project Specification](./PROJECT_SPEC.md)
+
+---
+
 ## Technical Overview
 
 - Built with TypeScript + Vite (React)  
