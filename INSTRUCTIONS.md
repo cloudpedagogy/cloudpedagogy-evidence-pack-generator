@@ -67,4 +67,11 @@ This tool helps users aggregate structured data from various design phases (such
 ### 10. Tips
 - **Keep it Updated:** Import the latest versions of your design files to ensure the evidence pack reflects the most recent decisions.
 - **Be Explicit in Notes:** Use the Institutional Notes section to explain *why* certain decisions were made, especially regarding AI risks and mitigations.
-- **Use the Print Preview:** The output is optimized for printing; use the print preview to ensure all necessary sections are visible.
+---
+
+### 11. Capability and Governance
+This tool supports both AI capability development and lightweight governance.
+- **Capability is developed through use**: By structuring design evidence, the tool helps practitioners understand and reflect on their AI-supported work.
+- **Governance is supported through optional fields**: The **Capability & Governance Notes (Optional)** section includes fields for AI involvement, assumptions, risks, rationale, and review notes.
+
+These fields make technical decisions visible and reviewable, supporting responsible and accountable practice without constraining professional judgement.

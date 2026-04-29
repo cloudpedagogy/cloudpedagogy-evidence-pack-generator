@@ -7,6 +7,7 @@ import { PackMetadataCard } from './components/PackMetadataCard';
 import { SourceDataImportCard } from './components/SourceDataImportCard';
 import { EvidenceSectionsCard } from './components/EvidenceSectionsCard';
 import { InstitutionalNotesCard } from './components/InstitutionalNotesCard';
+import { CapabilityGovernanceCard } from './components/CapabilityGovernanceCard';
 import { OutputCard } from './components/OutputCard';
 
 const STORAGE_KEY = 'cloudpedagogy-evidence-pack';
@@ -96,6 +97,12 @@ function App() {
         />
         
         <InstitutionalNotesCard 
+          notes={appState.institutionalNotes}
+          onChange={(institutionalNotes) => setPartialState({ institutionalNotes })}
+        />
+
+        {/* Lightweight capability and governance layer */}
+        <CapabilityGovernanceCard 
           notes={appState.institutionalNotes}
           onChange={(institutionalNotes) => setPartialState({ institutionalNotes })}
         />

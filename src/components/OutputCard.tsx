@@ -28,11 +28,15 @@ export function OutputCard({ appState }: OutputCardProps) {
 
     textSections.push(`\n--- Institutional Notes ---`);
     if (institutionalNotes.policyReference) textSections.push(`Policy Reference: ${institutionalNotes.policyReference}`);
-    if (institutionalNotes.reviewerNotes) textSections.push(`Reviewer Notes:\n${institutionalNotes.reviewerNotes}`);
+    if (institutionalNotes.reviewerNotes || institutionalNotes.reviewNotes) {
+      textSections.push(`Review Notes:\n${institutionalNotes.reviewNotes || institutionalNotes.reviewerNotes}`);
+    }
     if (institutionalNotes.generalNotes) textSections.push(`General Notes:\n${institutionalNotes.generalNotes}`);
     if (institutionalNotes.aiInvolvement) textSections.push(`AI Involvement:\n${institutionalNotes.aiInvolvement}`);
     if (institutionalNotes.rationale) textSections.push(`Rationale:\n${institutionalNotes.rationale}`);
-    if (institutionalNotes.risksConcerns) textSections.push(`Risks & Concerns:\n${institutionalNotes.risksConcerns}`);
+    if (institutionalNotes.risksConcerns || institutionalNotes.risks) {
+      textSections.push(`Risks:\n${institutionalNotes.risks || institutionalNotes.risksConcerns}`);
+    }
     if (institutionalNotes.assumptions) textSections.push(`Assumptions:\n${institutionalNotes.assumptions}`);
 
     navigator.clipboard.writeText(textSections.join('\n'));
@@ -82,8 +86,8 @@ export function OutputCard({ appState }: OutputCardProps) {
           <p className="text-muted italic">No evidence sections included.</p>
         )}
 
-        {(institutionalNotes.policyReference || institutionalNotes.reviewerNotes || institutionalNotes.generalNotes || 
-          institutionalNotes.aiInvolvement || institutionalNotes.rationale || institutionalNotes.risksConcerns || institutionalNotes.assumptions) && (
+        {(institutionalNotes.policyReference || institutionalNotes.reviewerNotes || institutionalNotes.reviewNotes || institutionalNotes.generalNotes || 
+          institutionalNotes.aiInvolvement || institutionalNotes.rationale || institutionalNotes.risksConcerns || institutionalNotes.risks || institutionalNotes.assumptions) && (
           <div style={{ marginTop: '32px', padding: '16px', backgroundColor: '#F9FAFB', border: '1px solid var(--color-border-default)' }}>
             <h3 style={{ marginTop: 0 }}>Institutional & Reviewer Notes</h3>
             {institutionalNotes.policyReference && (
@@ -92,10 +96,10 @@ export function OutputCard({ appState }: OutputCardProps) {
                 <div>{institutionalNotes.policyReference}</div>
               </div>
             )}
-            {institutionalNotes.reviewerNotes && (
+            {(institutionalNotes.reviewerNotes || institutionalNotes.reviewNotes) && (
               <div style={{ marginBottom: '12px' }}>
-                <div className="semibold">Reviewer Notes</div>
-                <div style={{ whiteSpace: 'pre-wrap' }}>{institutionalNotes.reviewerNotes}</div>
+                <div className="semibold">Review Notes</div>
+                <div style={{ whiteSpace: 'pre-wrap' }}>{institutionalNotes.reviewNotes || institutionalNotes.reviewerNotes}</div>
               </div>
             )}
             {institutionalNotes.generalNotes && (
@@ -118,10 +122,10 @@ export function OutputCard({ appState }: OutputCardProps) {
                 <div style={{ whiteSpace: 'pre-wrap' }}>{institutionalNotes.rationale}</div>
               </div>
             )}
-            {institutionalNotes.risksConcerns && (
+            {(institutionalNotes.risksConcerns || institutionalNotes.risks) && (
               <div style={{ marginBottom: '12px', padding: '12px', backgroundColor: '#fff', border: '1px solid var(--color-border-subtle)', borderRadius: 'var(--radius-sm)' }}>
-                <div className="semibold" style={{ color: 'var(--color-primary)', fontSize: '0.9rem' }}>Risks & Concerns</div>
-                <div style={{ whiteSpace: 'pre-wrap' }}>{institutionalNotes.risksConcerns}</div>
+                <div className="semibold" style={{ color: 'var(--color-primary)', fontSize: '0.9rem' }}>Risks</div>
+                <div style={{ whiteSpace: 'pre-wrap' }}>{institutionalNotes.risks || institutionalNotes.risksConcerns}</div>
               </div>
             )}
             {institutionalNotes.assumptions && (

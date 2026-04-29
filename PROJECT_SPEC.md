@@ -61,4 +61,12 @@ Its distinctive value lies in its ability to synthesize technical design decisio
 
 ## 15. Anything Unclear or Inferred from Repo Contents
 - **Inferred from repo contents**: The specific structure of `assessmentDesignData` and `aiIntegrityData` is handled generically in `SourceDataImportCard.tsx`, suggesting a flexible schema-agnostic approach to aggregation.
-- **Assumed**: The app assumes the user has already completed design work in upstream tools.
+
+---
+
+## 16. Capability and Governance Alignment
+This tool is aligned with the CloudPedagogy Capability and Governance standard.
+- **Capability**: The tool supports development of practical AI capability through structured interaction and workflow use.
+- **Governance**: The tool includes lightweight, optional fields that make assumptions, risks, and decisions visible and reviewable.
+
+This alignment ensures the tool supports both effective use of AI and responsible, accountable practice.

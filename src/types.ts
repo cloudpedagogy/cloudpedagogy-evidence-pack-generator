@@ -31,6 +31,8 @@ export interface InstitutionalNotes {
   rationale?: string;
   risksConcerns?: string;
   assumptions?: string;
+  risks?: string;
+  reviewNotes?: string;
 }
 
 export interface AppState {
